@@ -7,6 +7,8 @@ function home () {
     <Def>
         <main>
             <h1>HOME</h1>
+            <a href="\places">
+            </a>
         </main>
     </Def>
   )

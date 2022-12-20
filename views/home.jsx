@@ -6,6 +6,13 @@ function home () {
     <Def>
         <main>
             <h1>HOME</h1>
+                            <div>
+                  <img src="images/unsplash.jpg" alt="Unsplash" />
+                  </div>
+      <div>
+        Photo by <a href="https://unsplash.com/@kalvisuals">KAL VISUALS</a> on <a href="https://unsplash.com/photos/aK4iPNYipnU">Unsplash</a>
+      </div>
+                
 <a href="/places">
   <button className="btn-primary">Places Page</button>
 </a>
@@ -16,4 +23,3 @@ function home () {
 
   
 module.exports = home
-

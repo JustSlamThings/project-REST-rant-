@@ -27,7 +27,7 @@ function new_form () {
     <label htmlFor="cuisines">Cuisines</label>
     <input id="cuisines" name="cuisines" required />
   </div>
-  <input type="submit" value="Add Place" />
+  <input type= "submit" value="Add Place" />
 </form>
 
 

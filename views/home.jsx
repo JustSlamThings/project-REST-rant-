@@ -16,6 +16,12 @@ function home () {
 <a href="/places">
   <button className="btn-primary">Places Page</button>
 </a>
+<a href="/">
+  <button className="btn-primary">Index Page</button>
+</a>
+
+{/* can't seem to complete one of the bonus  
+2. Make a prominent link on the home page that leads the user to the index page (this is the GET route for /places).*/}
         </main>
     </Def>
   )

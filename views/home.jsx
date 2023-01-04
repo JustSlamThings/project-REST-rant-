@@ -21,7 +21,7 @@ function home () {
 </a>
 
 {/* can't seem to complete one of the bonus  
-2. Make a prominent link on the home page that leads the user to the index page (this is the GET route for /places).*/}
+2. Make a prominent link on the home page that leads the user to the index page (this is the GET route for /places). */}
         </main>
     </Def>
   )

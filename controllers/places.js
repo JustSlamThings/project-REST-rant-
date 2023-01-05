@@ -38,6 +38,7 @@ router.get('/', (req, res) => {
 // }]
 
 res.render('places/index', { places })
+// res.render('places/index', { places })
 
 })
 

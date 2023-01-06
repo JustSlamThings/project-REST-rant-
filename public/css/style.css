@@ -3,7 +3,10 @@ h1 {
   color: cornflowerblue;
 }
 
-
+*{
+  align-content: center;
+  justify-content: center;
+}
 nav {
     background-color: cornflowerblue;
     padding: 10px;

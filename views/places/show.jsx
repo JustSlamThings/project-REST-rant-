@@ -8,7 +8,7 @@ function show (data) {
             <h1>{ data.place.name }</h1>
             <h1>{ data.place.city }</h1>
             <h1>{ data.place.state }</h1>
-            <h1>{ data.place.cuisine }</h1>
+            <h1>{ data.place.cuisines }</h1>
             <h1>Ratings Section</h1>
             <h2>Currently Unrated</h2>
             <h1>Comments Section</h1>

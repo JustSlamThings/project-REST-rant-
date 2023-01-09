@@ -13,15 +13,24 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  db.Place.create(req.body)
-  .then(() => {
-      res.redirect('/places')
-  })
-  .catch(err => {
-      console.log('err', err)
-      res.render('error404')
-  })
+    db.Place.create(req.body)
+    .then(() => {
+        res.redirect('/places')
+    })
+    .catch(err => {
+        if (err && err.name == 'ValidationError') {
+    let message = 'Validation Error: '
+    
+    // Todo: Find all validation errors
+
+    res.render('places/new', { message })
+}
+else {
+    res.render('error404')
+}
+    })
 })
+  
 
 router.get('/new', (req, res) => {
   res.render('places/new')

@@ -5,18 +5,22 @@ function show (data) {
     return (
         <Def>
           <main>
+          <div className='row'>
+          <div className="col-sm-6">
             <h1>{ data.place.name }</h1>
       <img src={data.place.pic} alt={data.place.name} />
-            <h1>City</h1>
-            <h3>{ data.place.city }</h3>
-            <h1>State</h1>
-            <h3>{ data.place.state }</h3>
-            <h1>Cuisines</h1>
-            <h3>{ data.place.cuisines }</h3>
+      <h3>Located in {data.place.city}, {data.place.state}</h3>
+          </div>
+                <div className="col-sm-6">
+        <h2>Description</h2>
+            <h3>{data.place.showEstablished()}</h3>
+            <h4>Serving {data.place.cuisines}</h4>
             <h1>Ratings Section</h1>
             <h2>Currently Unrated</h2>
             <h1>Comments Section</h1>
             <h2>No Comments yet! </h2>
+ </div></div>
+   
 <a href={`/places/${data.id}/edit`} className="btn btn-warning"> 
   Edit
 </a>     
@@ -25,9 +29,9 @@ function show (data) {
   <button type="submit" className="btn btn-danger">
     Delete
   </button>
-</form> 
+</form>
 
-   
+
 
           </main>
         </Def>

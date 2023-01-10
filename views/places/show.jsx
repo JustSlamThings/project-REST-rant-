@@ -5,6 +5,7 @@ function show (data) {
     return (
         <Def>
           <main>
+          <h1>Show Page</h1>
           <div className='row'>
           <div className="col-sm-6">
             <h1>{ data.place.name }</h1>

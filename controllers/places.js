@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const db = require('../models')
 
+// GET /places
 router.get('/', (req, res) => {
     db.Place.find()
     .then((places) => {
@@ -35,6 +36,7 @@ else {
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
+
 router.get('/:id', (req, res) => {
     db.Place.findById(req.params.id)
     .then(place => {

@@ -1,17 +1,28 @@
 const router = require('express').Router()
 const db = require('../models')
+const places = require('../models/places.js')
+
 
 // GET /places
 router.get('/', (req, res) => {
     db.Place.find()
-    .then((places) => {
-      res.render('places/index', { places })
-    })
-    .catch(err => {
-      console.log(err) 
-      res.render('error404')
-    })
-})
+        .then((places) => {
+            res.render('places/index', { places })
+        })
+        .catch(err => {
+            console.log('err', err)
+            res.render('error404')
+        })
+})// router.get('/', (req, res) => {
+//     db.Place.find()
+//     .then((places) => {
+//       res.render('places/index', { places })
+//     })
+//     .catch(err => {
+//       console.log(err) 
+//       res.render('error404')
+//     })
+// })
 
 router.post('/', (req, res) => {
     db.Place.create(req.body)
@@ -32,9 +43,9 @@ else {
     })
 })
   
-
+//show
 router.get('/new', (req, res) => {
-  res.render('places/new')
+    res.render('places/new')
 })
 
 router.get('/:id', (req, res) => {
@@ -92,6 +103,7 @@ router.delete('/:id', (req, res) => {
   }
 })
 
+//edit one
 router.get('/:id/edit', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {

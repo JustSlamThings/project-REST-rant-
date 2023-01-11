@@ -25,6 +25,20 @@ function Def (html) {
 
                 {html.children}
             </body>
+            <footer>
+
+              <nav>
+  <ul>
+    <li>
+      <p>Author: Stephen Lam</p>
+    </li>
+    <li>
+      <p>Copyright © 2023-$`{getFullYear()}` Stephen Lam</p>
+    </li>
+  </ul>
+</nav>
+
+            </footer>
         </html>
     )
 }

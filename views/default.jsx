@@ -1,4 +1,6 @@
 const React = require('react')
+// const today=New Date()
+// const year = today.getFullYear()
 
 function Def (html) {
     return (
@@ -33,8 +35,13 @@ function Def (html) {
       <p>Author: Stephen Lam</p>
     </li>
     <li>
-      <p>Copyright © 2023-$`{getFullYear()}` Stephen Lam</p>
+      <p>Copyright © 2023 to 2023</p>
     </li>
+
+<li>
+{/* {getFullYear()} */}
+    </li>
+
   </ul>
 </nav>
 

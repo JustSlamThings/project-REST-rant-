@@ -25,38 +25,38 @@ router.get('/', (req, res) => {
 // })
 
 router.post('/', (req, res) => {
-    db.Place.create(req.body)
-    .then(() => {
-        res.redirect('/places')
-    })
-    .catch(err => {
-        if (err && err.name == 'ValidationError') {
-    let message = 'Validation Error: '
-    
-    // Todo: Find all validation errors
-
-    res.render('places/new', { message })
-}
-else {
-    res.render('error404')
-}
-    })
+  console.log(req.body)
+  if (!req.body.pic) {
+    // Default image if one is not provided
+    req.body.pic = 'http://placekitten.com/400/400'
+  }
+  if (!req.body.city) {
+    req.body.city = 'Anytown'
+  }
+  if (!req.body.state) {
+    req.body.state = 'USA'
+  }
+  places.push(req.body)
+  res.redirect('/places')
 })
-  
+
 //show
 router.get('/new', (req, res) => {
-    res.render('places/new')
+  res.render('places/new')
 })
 
+
 router.get('/:id', (req, res) => {
-    db.Place.findById(req.params.id)
-    .then(place => {
-        res.render('places/show', { place })
-    })
-    .catch(err => {
-        console.log('err', err)
-        res.render('error404')
-    })
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    res.render('places/show', { place: places[id], id })
+  }
 })
 
 
@@ -88,7 +88,6 @@ router.put('/:id', (req, res) => {
   }
 })
 
-
 router.delete('/:id', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
@@ -102,6 +101,8 @@ router.delete('/:id', (req, res) => {
     res.redirect('/places')
   }
 })
+
+
 
 //edit one
 router.get('/:id/edit', (req, res) => {

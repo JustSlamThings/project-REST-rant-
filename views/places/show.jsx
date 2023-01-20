@@ -2,6 +2,27 @@ const React = require('react')
 const Def = require('../default')
 
 function show (data) {
+    let comments = (
+      <h3 className="inactive">
+        No comments yet!
+      </h3>
+    )
+let rating = (
+  <h3 className="inactive">
+    Not yet rated
+  </h3>
+)
+if (data.place.comments.length) {
+  let sumRatings = data.place.comments.reduce((tot, c) => {
+    return tot + c.stars
+  }, 0)
+  let averageRating = sumRatings / data.place.comments.length
+  rating = (
+    <h3>
+      {averageRating} stars
+    </h3>
+  )
+}
     return (
         <Def>
           <main>
@@ -18,8 +39,11 @@ function show (data) {
         <h2>Description</h2>
             <h3>{data.place.showEstablished()}</h3>
             <h4>Serving {data.place.cuisines}</h4>
-            <h1>Ratings Section</h1>
-            <h2>Currently Unrated</h2>
+                <h2>
+                  Rating
+                </h2>
+                {rating}
+                <br />
             <h1>Comments Section</h1>
             <h2>No Comments yet! </h2>
  </div></div>

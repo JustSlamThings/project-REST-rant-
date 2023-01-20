@@ -1,3 +1,4 @@
+
 const db = require('../models/index.js')
 // const db = require('./models') had a typo cuz it didn't target the right file. 
 

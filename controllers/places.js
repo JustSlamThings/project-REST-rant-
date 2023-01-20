@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
 //       res.render('error404')
 //     })
 // })
+
 router.post('/', (req, res) => {
     if (!req.body.pic) {
       // Default image if one is not provided
@@ -69,11 +70,12 @@ router.post('/', (req, res) => {
 //   res.redirect('/places')
 // })
 
-//show
+
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
+//show
 router.get('/:id', (req, res) => {
     db.Place.findById(req.params.id)
     .then(place => {
@@ -150,9 +152,11 @@ router.get('/:id/edit', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
       res.render('error404')
+        console.log("places.js, Line 154")
   }
   else if (!places[id]) {
       res.render('error404')
+        console.log("places.js, Line 158")
   }
   else {
     res.render('places/edit', { place: places[id], id })

@@ -1,6 +1,16 @@
 const React = require('react')
 const Def = require('../default')
 
+let sumRatings = data.place.comments.reduce((tot, c) => {
+  return tot + c.stars
+}, 0)
+let averageRating = sumRatings / data.place.comments.length
+rating = (
+  <h3>
+  {Math.round(averageRating)} stars
+  </h3>
+)
+
 function new_form (data) {
   let message = 'Validation Error: '                 
     if (data.message) {

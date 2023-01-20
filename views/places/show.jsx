@@ -12,7 +12,7 @@ function show (data) {
       comments = data.place.comments.map(c => {
         return (
           <div className="border">
-            <h2 className="rant">{c.rant ? 'Rant! ðŸ˜¡' : 'Rave! ðŸ˜»'}</h2>
+            <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😸 »'}</h2>
             <h4>{c.content}</h4>
             <h3>
               <stong>- {c.author}</stong>
@@ -22,7 +22,7 @@ function show (data) {
         )
       })
     }
-
+    
 let rating = (
   <h3 className="inactive">
     Not yet rated
@@ -32,12 +32,13 @@ if (data.place.comments.length) {
   let sumRatings = data.place.comments.reduce((tot, c) => {
     return tot + c.stars
   }, 0)
-  let averageRating = sumRatings / data.place.comments.length
+  let averageRating = Math.round(sumRatings / data.place.comments.length)
   rating = (
     <h3>
       {averageRating} stars
     </h3>
   )
+
 }
     return (
         <Def>
@@ -74,8 +75,27 @@ if (data.place.comments.length) {
     Delete
   </button>
 </form> 
+ <form method='POST' action={`/places/${data.place.id}/comment`}>
+                <div>
+                <span>
+                    <label htmlFor='author'>Name:</label>
+                    <input className='form-control text-center' type='text' id='author' name='author'></input>
+                    
+                    <label htmlFor='content'>Comments</label>
+                    <input className='form-control text-center' type='textarea' id='content' name='content'></input>
 
+                    <label htmlFor='stars'>Rating</label>
+                    <input step={.5} type='number' id='stars' name='stars' min={0} max={5}></input>
+</span>
 
+<span>
+                    <label htmlFor='rant'>Would you like to rant?</label>
+                    <input type="checkbox" name='rant' id='rant'></input>
+</span>
+                    <input type='submit' className="btn btn-primary" value='Submit Comments'></input>
+ 
+                </div>
+            </form>
           </main>
         </Def>
     )

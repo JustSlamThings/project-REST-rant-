@@ -18,11 +18,16 @@ function show (data) {
               <stong>- {c.author}</stong>
             </h3>
             <h4>Rating: {c.stars}</h4>
+                    <form method="POST" action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
+          <input type="submit" className="btn btn-danger" value="Delete Comment" />
+        </form>
           </div>
+
+          
         )
       })
     }
-    
+
 let rating = (
   <h3 className="inactive">
     Not yet rated

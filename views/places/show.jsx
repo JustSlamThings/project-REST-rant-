@@ -80,6 +80,7 @@ if (data.place.comments.length) {
   Edit
 </a>     
     
+//my careless mistake was here. when data.place.id was data.id or data._id 
 
 <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
   <button type="submit" className="btn btn-danger">

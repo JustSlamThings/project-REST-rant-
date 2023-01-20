@@ -26,3 +26,4 @@ db.Place.create([{
     process.exit()
 })
 
+//can call upon this js file whenever if i want to populate this by using node seeders/seed-places.js

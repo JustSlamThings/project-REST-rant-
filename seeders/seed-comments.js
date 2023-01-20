@@ -24,3 +24,6 @@ async function seed() {
 }
 
 seed()
+
+
+//can call upon this js file whenever if i want to populate this by using node seeders/seed-comments.js
